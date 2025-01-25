@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 X_data = pd.read_csv('logisticX.csv', header=None)
 Y_data = pd.read_csv('logisticY.csv', header=None)

@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+
 X_data = pd.read_csv('logisticX.csv', header=None)
 Y_data = pd.read_csv('logisticY.csv', header=None)
 
@@ -56,21 +58,23 @@ def plot_decision_boundary(X, Y, theta):
     
     class0 = (Y == 0)
     class1 = (Y == 1)
-    plt.scatter(X[class0, 1], X[class0, 2], label="Class 0", marker='x')
-    plt.scatter(X[class1, 1], X[class1, 2], label="Class 1", marker='o')
+    
+
+    plt.plot(X[class0, 1], X[class0, 2], label="Class 0", linestyle='-', marker='x')
+    plt.plot(X[class1, 1], X[class1, 2], label="Class 1", linestyle='-', marker='o')
     
 
     x1_vals = np.linspace(X[:, 1].min(), X[:, 1].max(), 100)
     x2_vals = -(theta[0] + theta[1] * x1_vals) / theta[2]
     plt.plot(x1_vals, x2_vals, color='red', label="Decision Boundary")
     
+
     plt.xlabel("Normalized Feature 1")
     plt.ylabel("Normalized Feature 2")
-    plt.title("Decision Boundary")
+    plt.title("Decision Boundary with Line Chart")
     plt.legend()
-    plt.savefig("decision_boundary.png", dpi=300, bbox_inches="tight")
+    plt.savefig("decision_boundary_line_chart.png", dpi=300, bbox_inches="tight")
     plt.show()
-
 
 plot_decision_boundary(X, Y, theta)
 
